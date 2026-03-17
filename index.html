@@ -1253,14 +1253,17 @@ async function api(method, path, body=null, noThrow=false){
 //  AUTH UI
 // ═══════════════════════════════════════════════════════════
 function showAuthScreen(){
-  document.getElementById('app-shell').style.display='none';
-  document.getElementById('auth-screen').style.display='flex';
-}
-function showApp(){
-  document.getElementById('auth-screen').style.display='none';
-  document.getElementById('app-shell').style.display='flex';
-}
+  const app = document.getElementById('app-shell');
+  const auth = document.getElementById('auth-screen');
 
+  if (!app || !auth) {
+    console.error('DOM не загрузился или id неправильный');
+    return;
+  }
+
+  app.style.display='none';
+  auth.style.display='flex';
+}
 async function doRegister(){
   const un=document.getElementById('auth-username').value.trim();
   const pw=document.getElementById('auth-password').value;
