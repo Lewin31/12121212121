@@ -1284,7 +1284,7 @@ async function doLogin(){
   const err=document.getElementById('auth-error');
   err.textContent='';
   try {
-    const res = await api('POST','casino-simulator-production.up.railway.app/auth/login',{username:un,password:pw});
+    const res = await api('POST',{username:un,password:pw});
     authToken = res.token;
     localStorage.setItem('casino_token', authToken);
     syncServerProfile(res.user);
