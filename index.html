@@ -1228,7 +1228,7 @@ function addCrashHist(val){
 //  API — подключение к серверу
 // ═══════════════════════════════════════════════════════════
 // ← ЗАМЕНИ ЭТО на свой URL с Railway после деплоя
-const API = localStorage.getItem('casino_api_url') || 'https://casino-simulator-production.up.railway.app';
+const API = localStorage.getItem('casino_api_url') || 'https://casino-simulator-production.up.railway.app/auth/login';
 let authToken = localStorage.getItem('casino_token') || '';
 let wsConn = null; let wsPingInterval = null;
 
@@ -1281,7 +1281,7 @@ async function doLogin(){
   const err=document.getElementById('auth-error');
   err.textContent='';
   try {
-    const res = await api('POST','/auth/login',{username:un,password:pw});
+    const res = await api('POST','casino-simulator-production.up.railway.app/auth/login',{username:un,password:pw});
     authToken = res.token;
     localStorage.setItem('casino_token', authToken);
     syncServerProfile(res.user);
