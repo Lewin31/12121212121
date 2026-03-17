@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Casino Royale</title>
 <style>
+  function showAuthScreen(){
+  document.getElementById('app-shell').style.display='none';
+  document.getElementById('auth-screen').style.display='flex';
+}
+
+function showApp(){
+  document.getElementById('auth-screen').style.display='none';
+  document.getElementById('app-shell').style.display='flex';
+}
 /* ═══════════════════════════════════ RESET & BASE */
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
